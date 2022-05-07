@@ -44,7 +44,7 @@ blogArticleRouter.get("/:id", async (req, res) => {
 });
 
 // Creating a new article
-blogArticleRouter.post("/", async (req, res) => {
+blogArticleRouter.post("/upload", async (req, res) => {
   try {
     const newBlog: Article = req.body;
     const client = await getClient();
