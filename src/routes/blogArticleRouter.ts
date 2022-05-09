@@ -82,7 +82,7 @@ blogArticleRouter.put("/:id", async (req, res) => {
 });
 
 // Deleting an article via _id
-blogArticleRouter.delete("/:id", async (req, res) => {
+blogArticleRouter.delete("/delete/:id", async (req, res) => {
   try {
     const id: string = req.params.id;
     const client = await getClient();
