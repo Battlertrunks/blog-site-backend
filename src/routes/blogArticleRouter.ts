@@ -26,6 +26,21 @@ blogArticleRouter.get("/", async (req, res) => {
   }
 });
 
+blogArticleRouter.get("/:uid", async (req, res) => {
+  try {
+    const uid: string = req.params.uid;
+    const client = await getClient();
+    const result = await client
+      .db()
+      .collection<Article>("articles")
+      .find({ userId: uid })
+      .toArray();
+    res.json(result);
+  } catch (err) {
+    errorResponse(err, res);
+  }
+});
+
 // Accessing just one of the articles via _id
 blogArticleRouter.get("/:id", async (req, res) => {
   try {
