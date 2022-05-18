@@ -42,7 +42,7 @@ blogArticleRouter.get("/:uid", async (req, res) => {
 });
 
 // Accessing just one of the articles via _id
-blogArticleRouter.get("/:id", async (req, res) => {
+blogArticleRouter.get("/view-blog/:id", async (req, res) => {
   try {
     const id: string = req.params.id;
     const client = await getClient();
